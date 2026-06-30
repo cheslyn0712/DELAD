@@ -1,0 +1,17 @@
+{
+  "gemma-2b": {
+    "llm_rel": "llm/gemma-2b",
+    "trans_rel": "transcoders/gemma-2b-plt",
+    "num_capture_layers": 26
+  },
+  "qwen3-8b": {
+    "llm_rel": "llm/qwen3-8b",
+    "trans_rel": "transcoders/qwen3-8b",
+    "num_capture_layers": 36
+  },
+  "qwen3-14b": {
+    "llm_rel": "llm/qwen3-14b",
+    "trans_rel": "transcoders/qwen3-14b",
+    "num_capture_layers": 36
+  }
+}
