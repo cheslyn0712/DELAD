@@ -141,6 +141,29 @@ for model in gemma-2b qwen3-8b qwen3-14b; do
 done
 ```
 
+## Reproducing the main results
+
+The reported evaluation consists of nine runs: three models (`gemma-2b`, `qwen3-8b`, `qwen3-14b`) on three benchmarks (`bgl`, `hdfs`, `thunderbird`). Each run executes the full pipeline and writes held-out test metrics.
+
+1. Install dependencies and set `DELAD_ROOT` as described in [Setup](#setup).
+2. Place the dataset splits, LLM checkpoints, and transcoder bundles under `assets/` (see [Artifacts](#artifacts)).
+3. Provide the experiment configuration used for the reported runs (`path/to/released_config.json`).
+4. From the repository root, execute the full pipeline for each model–dataset pair:
+
+```bash
+for model in gemma-2b qwen3-8b qwen3-14b; do
+  for dataset in bgl hdfs thunderbird; do
+    python main.py --config path/to/released_config.json \
+      --model-name "$model" --dataset-key "$dataset" \
+      --mode full_pipeline --output-dir outputs
+  done
+done
+```
+
+`full_pipeline` performs feature selection, feature calculation, detector training with validation-based tuning, and test evaluation.
+
+5. Read test scores from `outputs/circuit/<model>/<dataset>/.../metrics/test_metrics.json`. Event-level results are under `event_metrics`; session-level results on HDFS are under `chunk_metrics`.
+
 ## Outputs
 
 ```text
