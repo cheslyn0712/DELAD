@@ -162,7 +162,7 @@ done
 
 `full_pipeline` performs feature selection, feature calculation, detector training with validation-based tuning, and test evaluation.
 
-5. Read the reported test scores from `chunk_metrics` in `outputs/circuit/<model>/<dataset>/.../metrics/test_metrics.json`. Chunk-level scores are used on every dataset, so that methods defined only at the chunk level can be compared on the same splits.
+5. Read the reported test scores from `chunk_metrics` in `outputs/circuit/<model>/<dataset>/.../metrics/test_metrics.json`.
 
 ## Outputs
 
