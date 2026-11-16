@@ -162,7 +162,7 @@ done
 
 `full_pipeline` performs feature selection, feature calculation, detector training with validation-based tuning, and test evaluation.
 
-5. Read test scores from `outputs/circuit/<model>/<dataset>/.../metrics/test_metrics.json`. Event-level results are under `event_metrics`; session-level results on HDFS are under `chunk_metrics`.
+5. Read the reported test scores from `chunk_metrics` in `outputs/circuit/<model>/<dataset>/.../metrics/test_metrics.json`. Chunk-level scores are used on every dataset, so that methods defined only at the chunk level can be compared on the same splits.
 
 ## Outputs
 
@@ -171,4 +171,4 @@ outputs/circuit/<model>/<dataset>/.../metrics/test_metrics.json
 outputs/circuit/<model>/<dataset>/.../metrics/val_metrics.json
 ```
 
-Summaries may be copied to [results/](results/README.md). Event-level metrics: `event_metrics`; session-level (HDFS): `chunk_metrics`.
+Summaries may be copied to [results/](results/README.md). Reported comparison scores are under `chunk_metrics`.
